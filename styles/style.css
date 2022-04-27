@@ -1,0 +1,12 @@
+#stage{
+    position: relative;
+}
+
+.cell{
+    position: absolute;
+    border: 1px black solid;
+    background-color: white;
+    width: 96px;
+    height: 96px;
+    text-align: center;
+}
