@@ -1,12 +1,48 @@
-#stage{
-    position: relative;
-}
-
-.cell{
-    position: absolute;
-    border: 1px black solid;
+  body {
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  #game{
     background-color: white;
+    display: flex;
+    width: 90%;
+  }
+
+  #canvas{
+    position: relative;
+    width: 60%;
+    margin: 20px auto;
+  }
+  
+  .cell{
+    display: block;
+    position: absolute;
     width: 96px;
     height: 96px;
+    border: 1px black dashed;
+  }
+
+  #container{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+  }
+    
+
+  h1{
     text-align: center;
-}
+    font-size: 50px;
+    margin-bottom: 0px;
+  }
+
+  h3{
+    text-align: center;
+  }
+  
+  p{
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    border: 1px black solid;
+  }
