@@ -25,7 +25,6 @@ var seconds = 70
 function playGame(){
 
     if(playBtn.innerHTML === 'replay'){
-      console.log('im in replay')
       location.reload()
     }else{
       //Logic to disable play button
