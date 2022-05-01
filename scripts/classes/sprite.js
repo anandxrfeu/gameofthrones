@@ -166,7 +166,6 @@ class Monster extends Sprite{
             }
 }
 
-
 class House extends Sprite{
     constructor(name, bannerImage){
         super(name)

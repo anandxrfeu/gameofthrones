@@ -9,10 +9,15 @@ window.addEventListener("keydown", keydownHandler, false);
 // class instantiations
 var trail = new Sprite('trail')
 var arya = new Player('arya','/images/arya.png')
-var whiteWalker = new Monster('whiteWalker','/images/ww.png')
-var baratheon = new House ('baratheon', '/images/boost.png')
-var lanister = new House('lanister','/images/obstacle.png')
-var stark = new House('stark','/images/home.png')
+var whiteWalker = new Monster('whiteWalker','/images/white-walker.png')
+var baratheon = new House ('baratheon', '/images/baratheon.png')
+var lannister = new House('lannister','/images/lannister.png')
+var arryn = new House('arryn','/images/arryn.png')
+var martell = new House('martell','/images/martell.png')
+var targaryen = new House('targaryen','/images/targaryen.png')
+var tully = new House('tully','/images/tully.png')
+var tyrell = new House('tyrell','/images/tyrell.png')
+var stark = new House('stark','/images/stark.png')
 
 /**
  * The game map
@@ -22,14 +27,14 @@ var stark = new House('stark','/images/home.png')
 
 var map =
 [
-  [trail, lanister, trail, trail, trail, lanister, trail, stark],
-  [trail, trail, trail, baratheon, trail, trail, trail, trail],
-  [trail, baratheon, trail, trail, trail, trail, baratheon, trail],
-  [trail, trail, trail, trail, lanister, trail, trail, trail],
+  [trail, lannister, trail, trail, trail, targaryen, trail, stark],
+  [trail, trail, trail, arryn, trail, trail, trail, trail],
+  [trail, baratheon, trail, trail, trail, trail, tully, trail],
+  [trail, trail, trail, trail, tyrell, trail, trail, trail],
   [trail, trail, trail, trail, trail, trail, trail, baratheon],
-  [trail, trail, baratheon, trail, trail, lanister, trail, trail],
+  [trail, trail, martell, trail, trail, lannister, trail, trail],
   [trail, trail, trail, trail, trail, trail, trail, trail],
-  [trail, trail, trail, trail, trail, baratheon, trail, trail]
+  [trail, trail, trail, trail, trail, arryn, trail, trail]
 ];
 
 /*
@@ -150,11 +155,16 @@ function keydownHandler(event){
       gameMessage = "Arya walks through the kingdoms."
       break;
     
-    case 'lanister':
+    case 'lannister':
+    case 'targaryen':
+    case 'tyrell':
+    case 'arryn':
       arya.fight();
       break; 
     
     case 'baratheon':
+    case 'tully':
+    case 'martell':
       arya.trade();
       break; 
       
@@ -246,20 +256,41 @@ function render()
       let spriteObject = map[row][column]
       switch(spriteObject.getName()){
         case 'trail':
-        cell.style.backgroundColor = 'white'
-        break;
+          cell.style.backgroundColor = 'white'
+          break;
 
         case 'baratheon':
-            cell.src = baratheon.bannerImage
+          cell.src = baratheon.bannerImage
           break; 
 
-        case 'lanister':
-            cell.src = lanister.bannerImage
+        case 'lannister':
+          cell.src = lannister.bannerImage
           break; 
 
         case 'stark':
-            cell.src = stark.bannerImage
+          cell.src = stark.bannerImage
           break;   
+
+        case 'arryn':
+          cell.src = arryn.bannerImage
+          break;
+
+        case 'martell':
+          cell.src = martell.bannerImage
+          break;
+
+        case 'targaryen':
+          cell.src = targaryen.bannerImage
+          break;
+
+        case 'tully':
+          cell.src = tully.bannerImage
+          break;
+
+        case 'tyrell':
+          cell.src = tyrell.bannerImage
+          break;         
+          
       }  
       
       //Add the PLAYER and monster from the gameObjects array
