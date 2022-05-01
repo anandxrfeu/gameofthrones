@@ -32,7 +32,7 @@ class Player extends Sprite{
         return this.gold > 0 ? true : false
     }
 
-    fight(){
+    fight(house){
         
         //House`s strength is a random number between 1 and the Arya's strength
         var opponentStrength = Math.ceil(Math.random() * this.strength * 2);
@@ -47,7 +47,7 @@ class Player extends Sprite{
             
             //Update the game message
             gameMessage 
-            = "Arya fought and LOST " + stolenGold + " gold pieces."
+            = "Arya fought House "+ house.getName() +",and LOST " + stolenGold + " gold coins."
 
         }else{
             // Arya wins
@@ -59,11 +59,11 @@ class Player extends Sprite{
             
             //Update the game message
             gameMessage 
-            = "Arya fought and WON " + opponentGold + " gold pieces."
+            = "Arya fought House "+house.getName()+",and WON " + opponentGold + " gold coins."
         } 
     }
 
-    trade(){
+    trade(house){
         // Calculate how much food the house has
         var hostFood = this.experience + this.gold;
         // Calculate the cost of food
@@ -76,8 +76,8 @@ class Player extends Sprite{
           this.experience += 2;
           
           gameMessage 
-            = "Arya bought " + hostFood + " pieces of bread"
-            + " for " + cost + " gold coins."
+            = "Arya snuck into the lands of House "+house.getName()+", and bought" +hostFood + " pieces of bread"
+            + " in exchange of " + cost + " gold coins."
         }else{
           // Arya does not have enough gold to buy food
            this.experience += 1;
@@ -108,25 +108,25 @@ class Monster extends Sprite{
         let direction = undefined;
         
         if(this.monsterRow > 0){
-            let thingAbove = map[this.monsterRow - 1][this.monsterColumn];
+            let thingAbove = board[this.monsterRow - 1][this.monsterColumn];
             if(thingAbove.getName() === 'trail'){
                 validDirections.push(UP);
             }
         }
         if(this.monsterRow < ROWS - 1){ 
-            var thingBelow = map[this.monsterRow  + 1][this.monsterColumn];
+            var thingBelow = board[this.monsterRow  + 1][this.monsterColumn];
             if(thingBelow.getName() === 'trail'){
                 validDirections.push(DOWN);
             }
         }
         if(this.monsterColumn > 0){
-            var thingToTheLeft = map[this.monsterRow ][this.monsterColumn - 1];
+            var thingToTheLeft = board[this.monsterRow ][this.monsterColumn - 1];
             if(thingToTheLeft.getName() === 'trail'){
                 validDirections.push(LEFT);
             }
         } 
         if(this.monsterColumn < COLUMNS - 1){
-            var thingToTheRight = map[this.monsterRow ][this.monsterColumn + 1];
+            var thingToTheRight = board[this.monsterRow ][this.monsterColumn + 1];
             if(thingToTheRight.getName() === 'trail'){
                 validDirections.push(RIGHT);
             }
@@ -163,7 +163,7 @@ class Monster extends Sprite{
                 this.monsterColumn++;
                 gameObjects[this.monsterRow][this.monsterColumn] = this;
         }
-            }
+    }
 }
 
 class House extends Sprite{

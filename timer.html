@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <button id="playBtn" class="btn play">Play</button>
+    <button id="musicBtn" class="btn music">Music</button>
+    <p>Time remining: 
+        Minutes:<span id='min'></span>
+       Seconds <span id='sec'></span>
+    </p>
+    <script>
+        var seconds = 10
+        var intervalId = 0
+        var minute = document.getElementById('min')
+        var second = document.getElementById('sec')
+        var playBtn = document.getElementById('playBtn')
+        var musicBtn = document.getElementById('musicBtn')
+
+        playBtn.addEventListener('click',clickEventHandler)
+        
+        function clickEventHandler(){
+            console.log('in clickEventHandler')
+            //change class to stop
+            playBtn.classList.toggle('play')
+            playBtn.classList.toggle('replay')
+            playBtn.removeEventListener('click',clickEventHandler)
+
+            intervalId = setInterval(()=>{
+                console.log('in SetInterval function')
+                seconds--
+                displayTimer()
+                if(seconds === 0){
+                    alert('call endGame fn')
+                    clearInterval(intervalId)
+                    seconds = 10
+                    playBtn.classList.toggle('replay')
+                    playBtn.classList.toggle('play')
+                    playBtn.addEventListener('click',clickEventHandler)
+                }
+            },1000)
+        }
+
+        function displayTimer(){
+            minute.innerHTML = Math.floor(seconds / 60)
+            second.innerHTML = seconds % 60
+        }
+
+    </script>
+</body>
+</html>
