@@ -61,18 +61,18 @@ function displayTimer(){
 
 // class instantiations
 var trail = new Sprite('trail')
-var arya = new Player('arya','/images/arya.png')
-var whiteWalker = new Monster('whiteWalker','/images/white-walker.png')
-var baratheon = new House ('baratheon', '/images/baratheon.png')
-var lannister = new House('lannister','/images/lannister.png')
-var arryn = new House('arryn','/images/arryn.png')
-var martell = new House('martell','/images/martell.png')
-var targaryen = new House('targaryen','/images/targaryen.png')
-var greyjoy = new House('greyjoy','/images/greyjoy.svg')
-var tully = new House('tully','/images/tully.png')
-var tyrell = new House('tyrell','/images/tyrell.png')
-var bolton = new House('bolton','/images/Background.svg')
-var stark = new House('stark','/images/stark.png')
+var arya = new Player('arya','./images/arya.png')
+var whiteWalker = new Monster('whiteWalker','./images/white-walker.png')
+var baratheon = new House ('baratheon', './images/baratheon.png')
+var lannister = new House('lannister','./images/lannister.png')
+var arryn = new House('arryn','./images/arryn.png')
+var martell = new House('martell','./images/martell.png')
+var targaryen = new House('targaryen','./images/targaryen.png')
+var greyjoy = new House('greyjoy','./images/greyjoy.svg')
+var tully = new House('tully','./images/tully.png')
+var tyrell = new House('tyrell','./images/tyrell.png')
+var bolton = new House('bolton','./images/Background.svg')
+var stark = new House('stark','./images/stark.png')
 
 
 /**
