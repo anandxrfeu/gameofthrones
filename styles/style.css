@@ -25,7 +25,9 @@
     position: absolute;
     width: 96px;
     height: 96px;
-    border: 1px black dashed;
+    /*border: 1px black dashed;*/
+    border-color: grey;
+    box-shadow: 0 0 10px grey;
   }
 
   #container{
@@ -59,3 +61,33 @@
   .replay{
     background-color: red;
   }
+
+  #controls{
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+  }
+
+  .button{
+    display: inline-block;
+    padding: 1em 1.5em;
+    margin: 2px auto;
+    width: 40%;
+    align-items:flex-end;
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    border: 0;
+    cursor: pointer;
+    background: linear-gradient(to left, #ff713b, #ffa51d);
+    color: white;
+    transition: background-color 250ms;
+    transform: scale(1);
+    transition: transform 250ms;
+  }
+
+
+  .button:hover {
+    background: red;
+    transform: scale(1.1);
+}

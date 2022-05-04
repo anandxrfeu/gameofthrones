@@ -362,10 +362,15 @@ function render()
 	    switch(spriteObject.getName()){
 	      case 'arya':
 	        cell.src = arya.playerImage
+	        cell.style.borderColor = 'green'
+          cell.style.boxShadow = '0 0 20px darkgreen'
+
 	        break;   
 	        
 	      case 'whiteWalker':
 	        cell.src = whiteWalker.monsterImage
+          cell.style.borderColor = 'red'
+          cell.style.boxShadow = '0 0 20px darkred'
 	        break;  
 	    } 
   
