@@ -1,11 +1,11 @@
 //Get a reference dom elements
-var canvas = document.querySelector("#canvas");
-var gameMessageText = document.querySelector("#gameMessage");
-var playBtn = document.getElementById("play")
-var bgAudioBtn = document.getElementById("bgAudioBtn")
-var bgAudio = document.getElementById("bgAudio")
-var minute = document.getElementById('min')
-var second = document.getElementById('sec')
+let canvas = document.querySelector("#canvas");
+let gameMessageText = document.querySelector("#gameMessage");
+let playBtn = document.getElementById("play")
+let bgAudioBtn = document.getElementById("bgAudioBtn")
+let bgAudio = document.getElementById("bgAudio")
+let minute = document.getElementById('min')
+let second = document.getElementById('sec')
 
 playBtn.addEventListener('click',playGame)
 bgAudioBtn.addEventListener('click',toggleMusic)
@@ -20,7 +20,7 @@ function toggleMusic(){
   }
 }
 
-var seconds = 70
+let seconds = 70
 
 function playGame(){
 
@@ -60,19 +60,19 @@ function displayTimer(){
 
 
 // class instantiations
-var trail = new Sprite('trail')
-var arya = new Player('arya','./images/arya.png')
-var whiteWalker = new Monster('whiteWalker','./images/white-walker.png')
-var baratheon = new House ('baratheon', './images/baratheon.png')
-var lannister = new House('lannister','./images/lannister.png')
-var arryn = new House('arryn','./images/arryn.png')
-var martell = new House('martell','./images/martell.png')
-var targaryen = new House('targaryen','./images/targaryen.png')
-var greyjoy = new House('greyjoy','./images/greyjoy.svg')
-var tully = new House('tully','./images/tully.png')
-var tyrell = new House('tyrell','./images/tyrell.png')
-var bolton = new House('bolton','./images/Background.svg')
-var stark = new House('stark','./images/stark.png')
+let trail = new Sprite('trail')
+let arya = new Player('arya','./images/arya.png')
+let whiteWalker = new Monster('whiteWalker','./images/white-walker.png')
+let baratheon = new House ('baratheon', './images/baratheon.png')
+let lannister = new House('lannister','./images/lannister.png')
+let arryn = new House('arryn','./images/arryn.png')
+let martell = new House('martell','./images/martell.png')
+let targaryen = new House('targaryen','./images/targaryen.png')
+let greyjoy = new House('greyjoy','./images/greyjoy.svg')
+let tully = new House('tully','./images/tully.png')
+let tyrell = new House('tyrell','./images/tyrell.png')
+let bolton = new House('bolton','./images/Background.svg')
+let stark = new House('stark','./images/stark.png')
 
 
 /**
@@ -81,7 +81,7 @@ var stark = new House('stark','./images/stark.png')
  * This board holds stationary characters of the game, such as the westeros houses
  */
 
-var board =
+let board =
 [
   [trail, lannister, trail, trail, trail, targaryen, trail, stark],
   [trail, trail, trail, arryn, trail, trail, trail, trail],
@@ -98,7 +98,7 @@ var board =
  * This is also a 2D array that overlaps the game board
  * This board holds the moving characters if the game, sich as Arya and the White Walker
  */
-var gameObjects =
+let gameObjects =
 [
   [whiteWalker, trail, trail, trail, trail, trail, trail, trail],
   [trail, trail, trail, trail, trail, trail, trail, trail],
@@ -112,27 +112,27 @@ var gameObjects =
 
 
 //The size of each cell
-var SIZE = 96;
+let SIZE = 96;
 //Space between cells
-var SPACE = 0;
+let SPACE = 3;
 
 //The number of rows and columns
-var ROWS = board.length;
-var COLUMNS = board[0].length;
+let ROWS = board.length;
+let COLUMNS = board[0].length;
 
 
 
 //Arrow key codes
-var UP = 38;
-var DOWN = 40;
-var RIGHT = 39;
-var LEFT = 37;
+let UP = 38;
+let DOWN = 40;
+let RIGHT = 39;
+let LEFT = 37;
 
 //The game variables
-var food = 10;
-var gold = 10;
-var experience = 0;
-var gameMessage = "";
+let food = 10;
+let gold = 10;
+let experience = 0;
+let gameMessage = "";
 
 render();
 
@@ -141,8 +141,8 @@ render();
  * of Arya and the WhiteWalker
  */
 function locatePlayerAndMonster(){
-  for(var row = 0; row < ROWS; row++) {	
-    for(var column = 0; column < COLUMNS; column++) {
+  for(let row = 0; row < ROWS; row++) {	
+    for(let column = 0; column < COLUMNS; column++) {
       let spriteObject = gameObjects[row][column]
       if(spriteObject.getName() === 'arya'){ 
         arya.playerRow = row;
@@ -257,7 +257,7 @@ function endGame()
   if(board[arya.playerRow][arya.playerColumn].getName() === 'stark')
   {
     //Calculate the score
-    var score = arya.food + arya.gold + arya.experience;
+    let score = arya.food + arya.gold + arya.experience;
     
     //Display the game message
     gameMessage 
@@ -292,16 +292,16 @@ function render()
 {
   //Clear the board of img cells from the previous turn
   if(canvas.hasChildNodes()){
-    for(var i = 0; i < ROWS * COLUMNS; i++) {	 
+    for(let i = 0; i < ROWS * COLUMNS; i++) {	 
       canvas.removeChild(canvas.firstChild);
     }
   }
   
   //Render the board by looping through the board arrays
-  for(var row = 0; row < ROWS; row++){	
-    for(var column = 0; column < COLUMNS; column++){ 
+  for(let row = 0; row < ROWS; row++){	
+    for(let column = 0; column < COLUMNS; column++){ 
       //Create a img tag called cell
-      var cell = document.createElement("img");
+      let cell = document.createElement("img");
 
       //Set it's CSS class to "cell"
       cell.setAttribute("class", "cell");

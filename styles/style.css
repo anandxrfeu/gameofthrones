@@ -2,10 +2,13 @@
   font-family: gameOfThrones;
   src: url(/fonts/got.ttf);
 }  
+
+
   
   body {
     padding: 0px;
     margin: 0px;
+    font-family: 'Press Start 2P', cursive;
   }
   
   #game{
@@ -25,9 +28,10 @@
     position: absolute;
     width: 96px;
     height: 96px;
-    /*border: 1px black dashed;*/
-    border-color: grey;
-    box-shadow: 0 0 10px grey;
+    border: 1px black dashed;
+    /*border-color: grey;*/
+    /*box-shadow: 0 0 10px grey;*/
+    /*box-sizing: border-box;*/
   }
 
   #container{
@@ -40,7 +44,7 @@
   h1{
     font-size: 50px;
     margin-bottom: 0px;
-    font-family: gameOfThrones;
+/*    font-family: gameOfThrones; */
   }
 
   h3{

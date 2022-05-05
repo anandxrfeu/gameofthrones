@@ -35,11 +35,11 @@ class Player extends Sprite{
     fight(house){
         
         //House`s strength is a random number between 1 and the Arya's strength
-        var opponentStrength = Math.ceil(Math.random() * this.strength * 2);
+        let opponentStrength = Math.ceil(Math.random() * this.strength * 2);
         
         // Opponent House Wins
         if(opponentStrength > this.strength){
-            var stolenGold = Math.round(opponentStrength / 2);
+            let stolenGold = Math.round(opponentStrength / 2);
             this.gold -= stolenGold;
 
             //Arya gains experience
@@ -51,7 +51,7 @@ class Player extends Sprite{
 
         }else{
             // Arya wins
-            var opponentGold = Math.round(opponentStrength / 2);
+            let opponentGold = Math.round(opponentStrength / 2);
             this.gold += opponentGold;
             
             //Arya gains experience  
@@ -65,9 +65,9 @@ class Player extends Sprite{
 
     trade(house){
         // Calculate how much food the house has
-        var hostFood = this.experience + this.gold;
+        let hostFood = this.experience + this.gold;
         // Calculate the cost of food
-        var cost = Math.ceil(Math.random() * hostFood);
+        let cost = Math.ceil(Math.random() * hostFood);
         
         //Let Arya buy food if she has enough gold
         if(this.gold > cost){
@@ -114,19 +114,19 @@ class Monster extends Sprite{
             }
         }
         if(this.monsterRow < ROWS - 1){ 
-            var thingBelow = board[this.monsterRow  + 1][this.monsterColumn];
+            let thingBelow = board[this.monsterRow  + 1][this.monsterColumn];
             if(thingBelow.getName() === 'trail'){
                 validDirections.push(DOWN);
             }
         }
         if(this.monsterColumn > 0){
-            var thingToTheLeft = board[this.monsterRow ][this.monsterColumn - 1];
+            let thingToTheLeft = board[this.monsterRow ][this.monsterColumn - 1];
             if(thingToTheLeft.getName() === 'trail'){
                 validDirections.push(LEFT);
             }
         } 
         if(this.monsterColumn < COLUMNS - 1){
-            var thingToTheRight = board[this.monsterRow ][this.monsterColumn + 1];
+            let thingToTheRight = board[this.monsterRow ][this.monsterColumn + 1];
             if(thingToTheRight.getName() === 'trail'){
                 validDirections.push(RIGHT);
             }
@@ -134,7 +134,7 @@ class Monster extends Sprite{
 
         // Randomly choose a direction for the whiteWalker to travel
         if(validDirections.length !== 0){
-            var randomNumber = Math.floor(Math.random() * validDirections.length);
+            let randomNumber = Math.floor(Math.random() * validDirections.length);
             direction = validDirections[randomNumber];
         }
         
