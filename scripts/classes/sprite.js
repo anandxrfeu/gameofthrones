@@ -47,7 +47,7 @@ class Player extends Sprite{
             
             //Update the game message
             gameMessage 
-            = "Arya fought House "+ house.getName() +",and LOST " + stolenGold + " gold coins."
+            = "Arya fought House "+ capitalize(house.getName()) +",and LOST " + stolenGold + " gold coins."
 
         }else{
             // Arya wins
@@ -59,7 +59,7 @@ class Player extends Sprite{
             
             //Update the game message
             gameMessage 
-            = "Arya fought House "+house.getName()+",and WON " + opponentGold + " gold coins."
+            = "Arya fought House "+capitalize(house.getName())+",and WON " + opponentGold + " gold coins."
         } 
     }
 
@@ -76,7 +76,7 @@ class Player extends Sprite{
           this.experience += 2;
           
           gameMessage 
-            = "Arya snuck into the lands of House "+house.getName()+", and bought" +hostFood + " pieces of bread"
+            = "Arya snuck into the lands of House "+ capitalize(house.getName())+", and bought " +hostFood + " pieces of bread"
             + " in exchange of " + cost + " gold coins."
         }else{
           // Arya does not have enough gold to buy food
@@ -172,3 +172,12 @@ class House extends Sprite{
         this.bannerImage = bannerImage
     }
 }
+
+
+const capitalize = (str) => {
+    if(typeof str === 'string') {
+        return str.replace(/^\w/, c => c.toUpperCase());
+    } else {
+        return '';
+    }
+};

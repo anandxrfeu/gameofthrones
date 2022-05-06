@@ -24,7 +24,7 @@ function toggleMusic(){
   }
 }
 
-let seconds = 70
+let seconds = 10
 
 function playGame(){
 
@@ -45,9 +45,10 @@ function playGame(){
         locatePlayerAndMonster()
 
       if(seconds === 0){
+        console.log('Time is up')
         endGame()
         clearInterval(intervalId)
-        seconds = 70
+        seconds = 10
         playBtn.classList.toggle('replay')
         playBtn.classList.toggle('play')
         playBtn.addEventListener('click',playGame)
@@ -131,7 +132,7 @@ let LEFT = 37;
 let food = 10;
 let gold = 10;
 let experience = 0;
-let gameMessage = "Click Play to start game";
+let gameMessage = "Click Play to start game.";
 
 render();
 
@@ -252,32 +253,28 @@ function keydownHandler(event){
 }
 
 function endGame(){
-  if(board[arya.playerRow][arya.playerColumn].getName() === 'stark')
-  {
+  if(board[arya.playerRow][arya.playerColumn].getName() === 'stark'){
     //updage image
-
-
-    //Calculate the score
-    let score = arya.food + arya.gold + arya.experience;
     
     //Display the game message
     gameMessage 
-      = "Arya has made it to winterfell ALIVE!<br>"; 
+      = "You WIN!<br>Arya has made it to winterfell ALIVE!"; 
   }else if(gameObjects[arya.playerRow][arya.playerColumn].getName()  === 'whiteWalker'){
     gameMessage 
-      = "Arya has been killed by a White Walker!<br>";
+      = "You LOSE!<br>Arya has been killed by a White Walker!";
   }else{
     //Display the game message
     if(arya.gold <= 0){
-      gameMessage = "Arya runs out of gold, and is killed by her squire!"; 
+      gameMessage = "You LOSE!<br>Arya runs out of gold, and is killed by her squire!"; 
+    }else if(arya.food <=0){
+      gameMessage = "You LOSE!<br>Arya runs out of food!, and dies a painfull death!"; 
     }else{
-      gameMessage = "Arya runs out of food!, and dies a painfull death!"; 
+      gameMessage= "You LOSE!<br>Time's Up! Click Replay to play again."
+      gameMessageText.innerHTML = gameMessage
     }
     
-//    gameMessage += ", and dies a painfull death!"; 
   }
   
-  //Remove the keyboard listener to end the game
   window.removeEventListener("keydown", keydownHandler, false);
 
   // Need to come back to this
