@@ -1,9 +1,6 @@
-@font-face {
-  font-family: gameOfThrones;
-  src: url(/fonts/got.ttf);
-}  
-
-
+  *{
+    box-sizing: border-box;
+  }
   
   body {
     padding: 0px;
@@ -28,7 +25,7 @@
     position: absolute;
     width: 96px;
     height: 96px;
-    border: 1px black dashed;
+    border: 1px black solid;
     /*border-color: grey;*/
     /*box-shadow: 0 0 10px grey;*/
     /*box-sizing: border-box;*/
@@ -38,13 +35,19 @@
     display: flex;
     flex-direction: column;
     width: 30%;
+    height: 600px;
+    justify-content: space-between;
   }
-    
+  
+  ul{
+    font-family: 'Courier New', Courier, monospace;
+    list-style: none;
+    font-size: 13px;
+  }
 
   h1{
-    font-size: 50px;
+    font-size: 40px;
     margin-bottom: 0px;
-/*    font-family: gameOfThrones; */
   }
 
   h3{
@@ -64,6 +67,10 @@
 
   .replay{
     background-color: red;
+  }
+
+  #gameMessage{
+    height: 100px;
   }
 
   #controls{
@@ -94,4 +101,38 @@
   .button:hover {
     background: red;
     transform: scale(1.1);
+}
+
+#timer{
+  text-align: center;
+}
+
+#timer, #score{
+  font-size: 12px;
+}
+
+.hero{
+  height: 180px;
+  width: 60%;
+}
+
+#imageHolder{
+  display: flex;
+  justify-content: space-between;
+}
+
+#score{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#gameMessage{
+  font-size: 12px;
+  background-color: rgb(249, 248, 246);
+  color: black;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }

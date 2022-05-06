@@ -1,11 +1,14 @@
 //Get a reference dom elements
-let canvas = document.querySelector("#canvas");
-let gameMessageText = document.querySelector("#gameMessage");
+let canvas = document.querySelector("#canvas")
+let gameMessageText = document.querySelector("#gameMessage")
 let playBtn = document.getElementById("play")
 let bgAudioBtn = document.getElementById("bgAudioBtn")
 let bgAudio = document.getElementById("bgAudio")
-let minute = document.getElementById('min')
 let second = document.getElementById('sec')
+let goldId = document.getElementById('gold')
+var foodId = document.getElementById('food')
+var expId = document.getElementById('exp')
+
 
 playBtn.addEventListener('click',playGame)
 bgAudioBtn.addEventListener('click',toggleMusic)
@@ -54,8 +57,7 @@ function playGame(){
 }
 
 function displayTimer(){
-  minute.innerHTML = Math.floor(seconds / 60)
-  second.innerHTML = seconds % 60
+  second.innerHTML = seconds
 }
 
 
@@ -83,14 +85,12 @@ let stark = new House('stark','./images/stark.png')
 
 let board =
 [
-  [trail, lannister, trail, trail, trail, targaryen, trail, stark],
-  [trail, trail, trail, arryn, trail, trail, trail, trail],
-  [trail, baratheon, trail, trail, trail, trail, tully, trail],
-  [trail, trail, trail, trail, tyrell, trail, trail, trail],
-  [trail, trail, trail, trail, trail, trail, trail, greyjoy],
-  [trail, trail, martell, trail, trail, lannister, trail, trail],
-  [trail, trail, trail, trail, trail, trail, trail, trail],
-  [trail, trail, trail, trail, trail, bolton, trail, trail]
+  [trail, trail,  trail, trail, targaryen, trail, stark],
+  [trail, trail,  arryn, trail, trail, trail, trail],
+  [baratheon, trail,  trail, trail, trail, tully, trail],
+  [trail, trail,  trail, tyrell, trail, trail, trail],
+  [trail, martell,  trail, trail, trail, trail, lannister],
+  [trail, trail,  trail, trail, bolton, trail, trail]
 ];
 
 /*
@@ -100,14 +100,12 @@ let board =
  */
 let gameObjects =
 [
-  [whiteWalker, trail, trail, trail, trail, trail, trail, trail],
-  [trail, trail, trail, trail, trail, trail, trail, trail],
-  [trail, trail, trail, trail, trail, trail, trail, trail],
-  [trail, trail, trail, trail, trail, trail, trail, trail],
-  [trail, trail, trail, trail, trail, trail, trail, trail],
-  [trail, trail, trail, trail, trail, trail, trail, trail],
-  [trail, trail, trail, trail, trail, trail, trail, trail],
-  [arya, trail, trail, trail, trail, trail, trail, trail]
+  [whiteWalker, trail, trail, trail, trail, trail,  trail],
+  [trail, trail, trail, trail, trail, trail,  trail],
+  [trail, trail, trail, trail, trail, trail,  trail],
+  [trail, trail, trail, trail, trail, trail,  trail],
+  [trail, trail, trail, trail, trail, trail,  trail],
+  [arya, trail, trail, trail, trail, trail,  trail]
 ];
 
 
@@ -132,7 +130,7 @@ let LEFT = 37;
 let food = 10;
 let gold = 10;
 let experience = 0;
-let gameMessage = "";
+let gameMessage = "Click Play to start game";
 
 render();
 
@@ -384,8 +382,15 @@ function render()
 	gameMessageText.innerHTML = gameMessage;
 	
 	//Display the player's food, gold, and experience
+  /*
 	gameMessageText.innerHTML 
 	  += "<br>Gold: " + arya.gold + ", Food: " 
 	  + arya.food + ", Experience: " + arya.experience;
+  */
+  goldId.innerHTML = arya.gold
+  foodId.innerHTML = arya.food
+  expId.innerHTML = arya.experience
 }
+
+
 
