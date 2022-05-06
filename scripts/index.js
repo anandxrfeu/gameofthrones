@@ -1,3 +1,5 @@
+const gameTime = 30;
+
 //Get a reference dom elements
 let canvas = document.querySelector("#canvas")
 let gameMessageText = document.querySelector("#gameMessage")
@@ -24,7 +26,7 @@ function toggleMusic(){
   }
 }
 
-let seconds = 10
+let seconds = gameTime
 
 function playGame(){
 
@@ -48,7 +50,7 @@ function playGame(){
         console.log('Time is up')
         endGame()
         clearInterval(intervalId)
-        seconds = 10
+        seconds = gameTime
         playBtn.classList.toggle('replay')
         playBtn.classList.toggle('play')
         playBtn.addEventListener('click',playGame)
@@ -133,6 +135,7 @@ let food = 10;
 let gold = 10;
 let experience = 0;
 let gameMessage = "Click Play to start game.";
+let gameOver = false;
 
 render();
 
@@ -253,9 +256,8 @@ function keydownHandler(event){
 }
 
 function endGame(){
+  gameOver = true;
   if(board[arya.playerRow][arya.playerColumn].getName() === 'stark'){
-    //updage image
-    
     //Display the game message
     gameMessage 
       = "You WIN!<br>Arya has made it to winterfell ALIVE!"; 
@@ -382,14 +384,22 @@ function render()
 	gameMessageText.innerHTML = gameMessage;
 	
 	//Display the player's food, gold, and experience
-  /*
-	gameMessageText.innerHTML 
-	  += "<br>Gold: " + arya.gold + ", Food: " 
-	  + arya.food + ", Experience: " + arya.experience;
-  */
   goldId.innerHTML = arya.gold
   foodId.innerHTML = arya.food
   expId.innerHTML = arya.experience
+
+  if(gameOver){
+    console.log('Game over')
+    if(board[arya.playerRow][arya.playerColumn].getName() === 'stark'){
+      //Display the game message
+      console.log('Arya has won')
+      hero.style.border = '3px green solid'
+    }else{
+      console.log('White Walker has won')
+      hero.style.border = '3px red solid'
+    }
+  }
+
 }
 
 
