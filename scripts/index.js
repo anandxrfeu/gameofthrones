@@ -384,8 +384,8 @@ function render()
 	gameMessageText.innerHTML = gameMessage;
 	
 	//Display the player's food, gold, and experience
-  goldId.innerHTML = arya.gold
-  foodId.innerHTML = arya.food
+  goldId.innerHTML = arya.gold < 0 ? 0 : arya.gold
+  foodId.innerHTML = arya.food < 0 ? 0 : arya.food
   expId.innerHTML = arya.experience
 
   if(gameOver){
