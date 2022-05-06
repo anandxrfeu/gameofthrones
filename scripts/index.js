@@ -67,8 +67,8 @@ function displayTimer(){
 
 // class instantiations
 let trail = new Sprite('trail')
-let arya = new Player('arya','./images/arya.png')
-let whiteWalker = new Monster('whiteWalker','./images/white-walker.png')
+let arya = new Player('arya','./images/arya-small.png')
+let whiteWalker = new Monster('whiteWalker','./images/white-walker-small.png')
 let baratheon = new House ('baratheon', './images/baratheon.png')
 let lannister = new House('lannister','./images/lannister.png')
 let arryn = new House('arryn','./images/arryn.png')
