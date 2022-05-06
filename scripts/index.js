@@ -1,13 +1,14 @@
 //Get a reference dom elements
 let canvas = document.querySelector("#canvas")
 let gameMessageText = document.querySelector("#gameMessage")
-let playBtn = document.getElementById("play")
+let playBtn = document.getElementById("playBtn")
 let bgAudioBtn = document.getElementById("bgAudioBtn")
 let bgAudio = document.getElementById("bgAudio")
 let second = document.getElementById('sec')
 let goldId = document.getElementById('gold')
-var foodId = document.getElementById('food')
-var expId = document.getElementById('exp')
+let foodId = document.getElementById('food')
+let expId = document.getElementById('exp')
+let hero = document.querySelector(".hero")
 
 
 playBtn.addEventListener('click',playGame)
@@ -27,7 +28,7 @@ let seconds = 70
 
 function playGame(){
 
-    if(playBtn.innerHTML === 'replay'){
+    if(playBtn.innerHTML === 'Replay'){
       location.reload()
     }else{
       //Logic to disable play button
@@ -250,10 +251,12 @@ function keydownHandler(event){
   render();
 }
 
-function endGame()
-{
+function endGame(){
   if(board[arya.playerRow][arya.playerColumn].getName() === 'stark')
   {
+    //updage image
+
+
     //Calculate the score
     let score = arya.food + arya.gold + arya.experience;
     
@@ -282,7 +285,7 @@ function endGame()
   displayTimer()
   playBtn.classList.toggle('replay')
   playBtn.classList.toggle('play')
-  playBtn.innerHTML='replay'
+  playBtn.innerHTML='Replay'
   playBtn.addEventListener('click',playGame)
 }
 
