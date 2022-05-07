@@ -362,15 +362,17 @@ function render()
 	    switch(spriteObject.getName()){
 	      case 'arya':
 	        cell.src = arya.playerImage
-	        cell.style.borderColor = 'green'
-          cell.style.boxShadow = '0 0 20px darkgreen'
+	        //cell.style.border = '2px solid green'
+          cell.style.borderColor = 'green'
+          cell.style.boxShadow = '0 0 10px darkgreen'
 
 	        break;   
 	        
 	      case 'whiteWalker':
 	        cell.src = whiteWalker.monsterImage
+          //cell.style.border = '2px solid red'
           cell.style.borderColor = 'red'
-          cell.style.boxShadow = '0 0 20px darkred'
+          cell.style.boxShadow = '0 0 10px darkred'
 	        break;  
 	    } 
   
@@ -391,12 +393,13 @@ function render()
   if(gameOver){
     console.log('Game over')
     if(board[arya.playerRow][arya.playerColumn].getName() === 'stark'){
-      //Display the game message
-      console.log('Arya has won')
-      hero.style.border = '3px green solid'
+      //hero.style.border = '3px green solid'
+      //hero.style.boxShadow = '0 0 20px darkgreen'
+      hero.src = './images/arya-happy.png'
     }else{
-      console.log('White Walker has won')
-      hero.style.border = '3px red solid'
+      //hero.style.border = '3px red solid'
+      //hero.style.boxShadow = '0 0 20px darkred'
+      hero.src = './images/arya-dead.png'
     }
   }
 
