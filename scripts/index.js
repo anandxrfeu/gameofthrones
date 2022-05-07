@@ -77,7 +77,7 @@ let targaryen = new House('targaryen','./images/targaryen.png')
 let greyjoy = new House('greyjoy','./images/greyjoy.svg')
 let tully = new House('tully','./images/tully.png')
 let tyrell = new House('tyrell','./images/tyrell.png')
-let bolton = new House('bolton','./images/Background.svg')
+let bolton = new House('bolton','./images/bolton.svg')
 let stark = new House('stark','./images/stark.png')
 
 
