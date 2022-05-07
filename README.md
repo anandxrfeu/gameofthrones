@@ -2,6 +2,9 @@
 
 An adventure game where in player races againt time to get main character Arya home. The game is built on a 7*6 grid, where each grid is a character in the game. Player uses UP, DOWN, LEFT and RIGHT arrow keys to move the main character. The game features several obstacles in enemy houses who would fight with the main character and try to steal her gold. There is also a dangeous character in White Walker, who moves randomly on the screen and can kill the main player and end the game instantly. On the bright side, there are friendly houses who are willing to trade food for gold. Finally, the player has 30 seconds to get Arya home.
 
+## Link to game
+https://anandxrfeu.github.io/gameofthrones/
+
 ![](./images/board.png)
 
 ## Rules of the game
